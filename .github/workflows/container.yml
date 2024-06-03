@@ -17,15 +17,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Install Root Dependencies
-        run: npm install
-        working-directory: .
-
-      - name: Install Container Dependencies
-        run: npm install
-        working-directory: packages/container
-
+      - run: npm install
       - run: npm run build
         env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
