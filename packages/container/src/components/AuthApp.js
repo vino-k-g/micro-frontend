@@ -1,8 +1,8 @@
-import { mount } from "marketing/MarketingApp";
 import React, { useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { mount } from "../../../auth/src/bootstrap";
 
-export default () => {
+export default ({onSignIn}) => {
     const ref = useRef(null);
     const history = useHistory();
 
@@ -15,7 +15,8 @@ export default () => {
                 if (pathname !== nextPathName) {
                     history.push(nextPathName);
                 }
-            }
+            },
+            onSignIn
         })
 
         history.listen(onParentNavigate)
